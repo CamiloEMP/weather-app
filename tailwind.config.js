@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      body: ['Comfortaa', 'sans-serif']
+      body: ['Darker Grotesque', 'Comfortaa', 'sans-serif']
     }
   },
   plugins: []

@@ -1,22 +1,20 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { RiSearchLine } from 'react-icons/ri'
-import { IoIosClose } from 'react-icons/io'
+import { useParamsSearch } from '../hooks/use-params-search'
+import { InputSearch } from '../components/input.search'
 
 export const Home = () => {
   const [search, setSearch] = useState('')
+  const { typeOfSearch } = useParamsSearch()
   const navigate = useNavigate()
-  console.log(search)
   return (
-    <div>
-      <h1 className='text-3xl dark:text-slate-200 text-center'>Busca una lugar</h1>
-      <div className='bg-neutral-800 w-80 mx-auto flex items-center gap-4 p-4 rounded-full'>
-        <RiSearchLine className='dark:text-gray-400' />
-        <input onChange={(e) => setSearch(e.target.value)} className='bg-transparent outline-none' type='text' placeholder='Colombia' />
-        <IoIosClose className='dark:text-gray-400' />
-      </div>
+    <section>
+      <h2 className='text-5xl dark:text-slate-200 text-center font-bold'>Search a city</h2>
+      {(typeOfSearch === 'realtime' || typeOfSearch === '') && <div>Realtime</div>}
+      {typeOfSearch === 'forecast' && <div>forecast</div>}
+      <InputSearch search={search} setSearch={setSearch} />
       <button onClick={() => navigate(`${search}`)}>Buscar</button>
-    </div>
+    </section>
   )
 }
