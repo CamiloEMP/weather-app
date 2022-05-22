@@ -2,7 +2,7 @@ import { useState, createContext } from 'react'
 
 export const ParamsSearchContext = createContext({
   city: '',
-  typeOfSearch: '',
+  typeOfSearch: 'realtime',
   options: {},
   setCity: () => {},
   setTypeOfSearch: () => {},
@@ -11,7 +11,7 @@ export const ParamsSearchContext = createContext({
 
 export const ParamsSearchProvider = ({ children }) => {
   const [city, setCity] = useState('')
-  const [typeOfSearch, setTypeOfSearch] = useState('')
+  const [typeOfSearch, setTypeOfSearch] = useState('realtime')
   const [options, setOptions] = useState({})
 
   return (

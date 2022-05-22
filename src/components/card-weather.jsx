@@ -1,14 +1,15 @@
 import { BiWind, BiCompass, BiSun, BiCloud } from 'react-icons/bi'
 import { FaDeaf } from 'react-icons/fa'
 import { MdOutlineWaterDrop, MdNightsStay } from 'react-icons/md'
+import { BoxCards } from './box-cards'
 import { InfoCardWeather } from './info.card.weather'
 
 export const CardWeather = ({ weather }) => {
   return (
-    <section className='w-11/12 max-w-md mx-auto dark:text-slate-200 shadow-md dark:shadow-black rounded-xl aspect-square py-8 px-4 space-y-7'>
+    <BoxCards otherClass='space-y-8'>
       <div className='flex items-end justify-center gap-2 sm:gap-4'>
-        <span className='text-2xl font-bold text-ellipsis overflow-hidden'>{weather.country}</span>
-        <span className='text-lg mb-0.5 text-gray-600 dark:text-gray-400'>{weather.locationName}</span>
+        <span className='text-4xl font-bold text-ellipsis overflow-hidden'>{weather.country}</span>
+        <span className='text-2xl mb-0.5 text-gray-600 dark:text-gray-400'>{weather.locationName}</span>
       </div>
       <div className='flex gap-5 justify-center items-center'>
         <span className='text-5xl font-bold'>{weather.temperature}º</span>
@@ -46,6 +47,6 @@ export const CardWeather = ({ weather }) => {
           attr={`${weather.cloud} %`}
         />
       </section>
-    </section>
+    </BoxCards>
   )
 }
